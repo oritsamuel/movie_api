@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from rest_framework import viewsets, permissions
+from .models import Movie
+from .serializers import MovieSerializer
 
-# Create your views here.
-from rest_framework import viewsets
-from .models import Product
-from .serializers import ProductSerializer
+from rest_framework import generics
+from rest_framework_simplejwt.views import TokenObtainPairView
 
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+class MovieViewSet(viewsets.ModelViewSet):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class LoginView(TokenObtainPairView):
+    pass 
