@@ -14,3 +14,11 @@ This repository contains a Django-based RESTful API for managing movie reviews. 
 * Pagination and sorting options for review lists
 
 **Getting Started:**
+
+curl commands
+To get all products:
+curl -X GET http://127.0.0.1:8000/movie/movies/
+To get a single product:
+curl -X GET http://127.0.0.1:8000/movie/movies/1/
+To create a new product:
+curl -X POST -H "Content-Type: application/json" -d '{"Title": "Dead Poet Society", "Review": "This is a new perspective", "Ratinge": "4.5"}' http://127.0.0.1:8000/movie/movies/
